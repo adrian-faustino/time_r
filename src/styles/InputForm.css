@@ -1,0 +1,51 @@
+.input__container {
+  display: grid;
+  grid-template-columns: 4fr 1fr;
+  padding: 0 10px;
+  align-items: center;
+}
+
+.input__form {
+  padding: 6px 10px;
+  font-size: 24px;
+  outline: none;
+  border: none;
+  border-radius: 5px 0 0 5px;
+  box-shadow: inset 0 0 2px black;
+  margin: 20px 0;
+}
+
+.inputButtons__container {
+  width: 85%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  padding: 5px;
+}
+
+.input__display {
+  margin-top: 50px;
+}
+
+.input__button {
+  border-radius: 5px;
+  outline: none;
+  border: none;
+  box-shadow: 0 0 2px black;
+  cursor: pointer;
+}
+
+.input__button--img {
+  box-shadow: none;
+}
+
+.input__submit {
+  height: 38px;
+  border: none;
+  outline: none;
+  border-radius: 0 5px 5px 0;
+  box-shadow: 0 0 2px black;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+}
