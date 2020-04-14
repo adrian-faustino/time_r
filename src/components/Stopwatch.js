@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import classNames from 'classnames';
 
 // styles
 import '../styles/Stopwatch.css';
@@ -7,9 +8,9 @@ import hourglass from '../assets/hourglass.png';
 export default function Stopwatch() {
   const initData = {
     h: 0,
-    m: 2,
-    s: 20,
-    ms: 100,
+    m: 0,
+    s: 0,
+    ms: 0,
     running: false,
     interval: '',
   };
@@ -26,7 +27,9 @@ export default function Stopwatch() {
     }
   };
 
+
   const start = (st) => {
+    // first try without useEffect:
     let interval = setInterval(() => {
       const ct = new Date();
       const elapsed =  ct - st;
@@ -36,19 +39,18 @@ export default function Stopwatch() {
         time.ms = 1000;
       }
       let newS = time.s - Math.floor(elapsed / 1000);
-      let newM = time.m - Math.floor(elapsed / 60000);
-      if (time.s === 0) {
+      if (newS === 0) {
         time.s = 59;
-        time.m--;
-        if (time.m === 0) {
-          time.m = 59;
-          time.h--;
-        }
       }
 
-      console.log(elapsed);
+      let newM = time.m - Math.floor(elapsed / 60000)
+      if (newM === 0) {
+        time.m = 59;
+      }
 
-      setTime({...time, ms: newMS, s: newS, m: newM, running: true, interval});
+      let newH = time.h - Math.floor(elapsed / 3600000);
+
+      setTime({...time, ms: newMS, s: newS, m: newM, h: newH, running: true, interval});
     }, 123);
   };
 
@@ -57,6 +59,11 @@ export default function Stopwatch() {
     time.running = false;
   };
 
+
+  // classnames
+  let hourglass_class = classNames('stopwatch__hourglass', {
+    'rotate': time.running,
+  });
 
   return (
     <div className='stopwatch__container'>
@@ -76,7 +83,9 @@ export default function Stopwatch() {
       <button 
       onClick={e => checkState(e)}
       className='stopwatch__button'>
-        <img className='stopwatch__hourglass' src={hourglass}></img>
+        <img 
+        className={hourglass_class}
+        src={hourglass}></img>
       </button>
     </div>
   )

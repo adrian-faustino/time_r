@@ -3,8 +3,6 @@ import React from 'react';
 // components
 import Todo from './Todo';
 
-// styles
-
 export default function TodoList({todos, deleteHandler, completeHandler}) {
   const list = todos.map(todo => (
     <Todo
