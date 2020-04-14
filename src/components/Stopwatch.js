@@ -56,7 +56,7 @@ export default function Stopwatch() {
 
   const stop = () => {
     clearInterval(time.interval);
-    time.running = false;
+    setTime({...time, running: false});
   };
 
 
