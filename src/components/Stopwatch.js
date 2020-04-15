@@ -18,7 +18,6 @@ export default function Stopwatch() {
   const [time, setTime] = useState(initData);
 
   const checkState = e => {
-    console.log('The stopwatch is running', time.running);
     if (!time.running) {
       let st = new Date();
       start(st);
