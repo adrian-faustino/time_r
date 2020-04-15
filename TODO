@@ -1,0 +1,47 @@
+General TODO:
+[x] button to clear all todos
+    [x] use todos to clear (useState)
+[x] button to clear all completed tasks - in progress
+    [x] check db in App
+[x] style new nav buttons
+[] fix span containing numbers. too wide
+[] tally for completed tasks?
+[] tally for productive hours
+[] fix stopwatch...
+[] confirm delete feature
+[] ability to edit each todo
+[] reset stopwatch button (beside hourglass)
+[] change window title and img to hourglass before deploying
+[] add animation for button click feedback
+[] ability to edit time
+
+
+Bugs:
+[] stopwatch countdown - counts down into negative number
+[x] typing space lots of times creates sillhouete (remove this. Only generate when text is inputted)
+[x] remove ability to create empty todo titles
+
+QOL:
+[] When user types a new input, scroll the right side to the very bottom to show input
+
+Feature ideas:
+[] Reusability - QOL
+-allow users to store todos in categories such as 'daily todos' e.g. jog or read 15 mins (habit)
+-things that need to be done everday anyway so no need to delete
+-todos with this tag will not be cleared
+-untoggle button to unclear (for reuse next day etc)
+
+[] Stats tracking - catch
+-sign in to save stats (track stats on weekly, monthly etc ERD)
+
+[] Dynamic render of features - accessibility
+-as users use features of the app, more things render (prevent TMI)
+-e.g when they first start its just one box
+-then once first TODO is input, render one todo
+-once they click check on todo, render left side to clear or untoggle
+
+[] Undo button on every delete - QOL
+-using prev keyword? (research)
+
+[] Motiv quote api - catch
+-https://www.freecodecamp.org/forum/t/free-api-inspirational-quotes-json-with-code-examples/311373

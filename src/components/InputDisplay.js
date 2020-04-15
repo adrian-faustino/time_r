@@ -9,6 +9,7 @@ export default function InputDisplay() {
     className='input__display'
     >
       <h1>What do you need to get done today?</h1>
+      <hr className='input-hr'/>
     </div>
   )
 }

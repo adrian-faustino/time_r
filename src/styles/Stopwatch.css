@@ -14,7 +14,7 @@
 }
 
 .stopwatch__container > span {
-  background-color: pink;
+  background-color: rgba(0, 0, 0, 0.1);
   display: inline-block;
   width: 30px;
   padding: 4px 6px;
@@ -24,12 +24,18 @@
 
 .stopwatch__button {
   position: absolute;
-  right: -48px;
-  width: 50px;
+  right: -40px;
+  width: 35px;
   height: 30px;
   border: none;
   outline: none;
   cursor: pointer;
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.stopwatch__button:hover {
+  box-shadow: inset 0 0 3px black;
+  background-color: orange;
 }
 
 .stopwatch__button > img {
@@ -47,7 +53,7 @@
   border-radius: 50%;
   background-color: rgba(255, 166, 0, 0.712);
   box-shadow: 0 0 30px 15px orange;
-  animation: rotation 3s;
+  animation: rotation 2s;
   animation-iteration-count: infinite;
 }
 

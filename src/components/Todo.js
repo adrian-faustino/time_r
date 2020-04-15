@@ -23,6 +23,7 @@ export default function Todo(props) {
       <span
       className='todo__title'
       >{props.title}
+      <hr className='todo-hr'/>
       </span>
       <section className='todoButton__container'>
         <button
@@ -38,8 +39,7 @@ export default function Todo(props) {
           <img alt={deleteIMG} src={deleteIMG} />
         </button>
       </section>
-
-      <Stopwatch />
+      { !props.complete ? <Stopwatch /> : ''}
     </li>
   )
 }

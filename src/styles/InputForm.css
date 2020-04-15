@@ -1,3 +1,14 @@
+.display__container {
+  border-radius: 10px;
+  box-shadow: 0 0 4px black;
+  padding: 0 30px 20px 30px;
+  position: fixed;
+  top: 50px;
+  left: 25%;
+  transform: translateX(-50%);
+  background: rgb(209, 116, 40);
+}
+
 .input__container {
   display: grid;
   grid-template-columns: 4fr 1fr;
@@ -24,7 +35,11 @@
 }
 
 .input__display {
-  margin-top: 50px;
+  text-align: center;
+}
+
+.input-hr {
+  border-color: rgba(75, 74, 74, 0.445);
 }
 
 .input__button {

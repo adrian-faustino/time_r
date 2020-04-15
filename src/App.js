@@ -9,6 +9,8 @@ import InputButtons from './components/InputButtons';
 import InputDisplay from './components/InputDisplay';
 import TodoList from './components/TodoList';
 import Todo from './components/Todo';
+import SideNav from './components/SideNav';
+import SideNavButton from './components/SideNavButton';
 
 // DUMMY DATA
 const initData = [{ //pass this data for ONE todo
@@ -17,7 +19,7 @@ const initData = [{ //pass this data for ONE todo
   todoID: uuidv4(),
 },{
   title: 'Do Laundry',
-  complete: false,
+  complete: true,
   todoID: uuidv4(),
 }];
 
@@ -64,18 +66,43 @@ function App() {
     setTodos([...todos]);
   };
 
-  // main render
+  //=====  Helper Functions  ===== /
+
+    // unchecks todos marked 'complete'
+  function onUntoggle() {
+    const list = todos.map(todo => {
+      const newObj = {...todo, complete: false};
+      return newObj;
+    });
+    setTodos(list);
+  }
+
+    // deletes completed tasks
+  function onDeleteComplete() {
+    const list = todos.filter(todo => !todo.complete);
+    setTodos(list);
+  }
+
+    // deletes all todos
+  function onDeleteAll() {
+    console.log('del');
+    setTodos([]);
+  }
+
+  //=====  Main Render  =====//
   return (
     <div className="App">
       <MainDivision>
-        <InputDisplay />
-        <InputForm 
-        submitHandler={submitHandler}
-        inputHandler={inputHandler}
-        currentTodo={currentTodo}
-        />
-        <InputButtons
-        />
+        <section className="display__container">
+          <InputDisplay />
+          <InputForm 
+          submitHandler={submitHandler}
+          inputHandler={inputHandler}
+          currentTodo={currentTodo}
+          />
+          <InputButtons
+          />
+        </section>
       </ MainDivision>
 
       <MainDivision>
@@ -84,8 +111,21 @@ function App() {
         deleteHandler={deleteHandler}
         todos={todos}
         />
-        {currentTodo ? <Todo title={currentTodo} blurOut /> : ''}
+        {currentTodo && currentTodo.trim() ? <Todo title={currentTodo} blurOut /> : ''}
       </MainDivision>
+
+      <SideNav>
+        <SideNavButton
+        message={'Reset'}
+        onClick_={() => onUntoggle()}/>
+        <SideNavButton
+        message={'Clear Done'}
+        onClick_={() => onDeleteComplete()}/>
+        <SideNavButton 
+        danger={'danger'}
+        message={'Clear All'}
+        onClick_={() => onDeleteAll()}/>
+      </SideNav>
     </div>
   );
 }
