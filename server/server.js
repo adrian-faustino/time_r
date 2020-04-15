@@ -1,16 +1,17 @@
+//server.js
 const express = require('express');
+const favicon = require('express-favicon');
+const path = require('path');
+const port = process.env.PORT || 8080;
 const app = express();
-const PORT = process.env.PORT || 5000;
-
-// Serve static files from the React app
-app.use(express.static("public");
-
-// The "catchall" handler: for any request that doesn't
-// match one above, send back React's index.html file.
-app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, '/client/build/index.html'));
+app.use(favicon(__dirname + '/build/favicon.ico'));
+// the __dirname is the current directory from where the script is running
+app.use(express.static(__dirname));
+app.use(express.static(path.join(__dirname, 'build')));
+app.get('/ping', function (req, res) {
+ return res.send('pong');
 });
-
-app.listen(PORT, () => {
-  console.log(`Listening on port ${PORT}...`);
+app.get('/*', function (req, res) {
+  res.sendFile(path.join(__dirname, 'build', 'index.html'));
 });
+app.listen(port);
