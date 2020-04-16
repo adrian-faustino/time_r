@@ -9,10 +9,26 @@ export function getTotalMS(timeObj) {
   return totalH + totalM + totalS + ms;
 }
 
-// returns elapsed MS between end and start
-export function msElapsed(start, end) {
-  return end - start;
-}
-
 // recieves total MS and returns an object with it in h, m s, and ms
-export function formatMS()
+export function formatMS(totalMS) {
+  let totalMS_ = totalMS;
+
+  const h = Math.floor(totalMS_ / (60 * 60 * 1000));
+  if (h > 0) {
+    totalMS_ = totalMS_ - (h * 60 * 60 * 1000);
+  }
+
+  const m = Math.floor(totalMS_ / (60 * 1000));
+  if (m > 0) {
+    totalMS_ = totalMS_ - (m * 60 * 1000);
+  }
+
+  const s = Math.floor(totalMS_ / (1000));
+  if (s > 0) {
+    totalMS_ = totalMS_ - (s * 1000);
+  }
+ 
+  const ms = totalMS_;
+
+  return {h, m, s, ms};
+}

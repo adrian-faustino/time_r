@@ -6,7 +6,7 @@ import '../styles/Stopwatch.css';
 import hourglass from '../assets/hourglass.png';
 
 // helper
-import { getTotalMS, msElapsed } from '../helper/StopwatchHelper';
+import { getTotalMS, formatMS } from '../helper/StopwatchHelper';
 
 export default function Stopwatch() {
   const initData = {
@@ -14,12 +14,21 @@ export default function Stopwatch() {
     m: 20,
     s: 0,
     ms: 0,
-    totalMS: 0,
+    totalMS: 3600000,
     running: false,
     interval: '',
   };
 
+  // state
   const [state, setState] = useState(initData);
+
+  // useEffect
+  // useEffect(() => {
+  //   console.log('useEffect triggered...');
+  //   setState({...state,
+  //     totalMS: getTotalMS(state),
+  //   });
+  // }, [totalMS]);
 
   const checkRunning = e => {
     if (!state.running) {
@@ -33,12 +42,22 @@ export default function Stopwatch() {
   const start2 = (start_T) => {
     let interval = setInterval(() => {
       const end_T = new Date();
-      console.log(msElapsed(start_T, end_T));
-      setState(prev => {
-        const newH = prev.h + 1;
-        return {...prev, h: newH, running: true, interval}
+      const elapsed = end_T - start_T;
+
+      const newTotalMS = state.totalMS - elapsed;
+      const timeObj = formatMS(newTotalMS);
+
+      setState({
+        ...state,
+        h: timeObj.h,
+        m: timeObj.m,
+        s: timeObj.s,
+        ms: timeObj.ms,
+        running: true,
+        interval,
+        totalMS: newTotalMS
       });
-    }, 132);
+    }, 231);
   };
 
 
