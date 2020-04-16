@@ -1,13 +1,18 @@
 General TODO:
 [x] button to clear all todos
     [x] use todos to clear (useState)
-[x] button to clear all completed tasks - in progress
+[x] button to clear all completed tasks
     [x] check db in App
 [x] style new nav buttons
 [] fix span containing numbers. too wide
 [] tally for completed tasks?
 [] tally for productive hours
-[] fix stopwatch...
+
+
+[] fix stopwatch... -in progress
+    [] calc start time (when user presses start)
+    [] calc time elapsed (timeNow - start)
+    [] IF countdown -> e.g. user typed 20min (20 - time ealpsed) --> then format
 [] confirm delete feature
 [] ability to edit each todo
 [] reset stopwatch button (beside hourglass)

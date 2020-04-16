@@ -5,25 +5,40 @@ import classNames from 'classnames';
 import '../styles/Stopwatch.css';
 import hourglass from '../assets/hourglass.png';
 
+// helper
+import { getTotalMS, msElapsed } from '../helper/StopwatchHelper';
+
 export default function Stopwatch() {
   const initData = {
     h: 0,
-    m: 0,
+    m: 20,
     s: 0,
     ms: 0,
+    totalMS: 0,
     running: false,
     interval: '',
   };
 
-  const [time, setTime] = useState(initData);
+  const [state, setState] = useState(initData);
 
-  const checkState = e => {
-    if (!time.running) {
-      let st = new Date();
-      start(st);
+  const checkRunning = e => {
+    if (!state.running) {
+      let start_T = new Date();
+      start2(start_T);
     } else {
       stop();
     }
+  };
+
+  const start2 = (start_T) => {
+    let interval = setInterval(() => {
+      const end_T = new Date();
+      console.log(msElapsed(start_T, end_T));
+      setState(prev => {
+        const newH = prev.h + 1;
+        return {...prev, h: newH, running: true, interval}
+      });
+    }, 132);
   };
 
 
@@ -33,54 +48,54 @@ export default function Stopwatch() {
       const ct = new Date();
       const elapsed =  ct - st;
 
-      let newMS = time.ms - (elapsed % 1000);
+      let newMS = state.ms - (elapsed % 1000);
       if (newMS < 0) {
-        time.ms = 1000;
+        state.ms = 1000;
       }
-      let newS = time.s - Math.floor(elapsed / 1000);
+      let newS = state.s - Math.floor(elapsed / 1000);
       if (newS === 0) {
-        time.s = 59;
+        state.s = 59;
       }
 
-      let newM = time.m - Math.floor(elapsed / 60000)
+      let newM = state.m - Math.floor(elapsed / 60000)
       if (newM === 0) {
-        time.m = 59;
+        state.m = 59;
       }
 
-      let newH = time.h - Math.floor(elapsed / 3600000);
+      let newH = state.h - Math.floor(elapsed / 3600000);
 
-      setTime({...time, ms: newMS, s: newS, m: newM, h: newH, running: true, interval});
+      setState({...state, ms: newMS, s: newS, m: newM, h: newH, running: true, interval});
     }, 123);
   };
 
   const stop = () => {
-    clearInterval(time.interval);
-    setTime({...time, running: false});
+    clearInterval(state.interval);
+    setState({...state, running: false});
   };
 
 
   // classnames
   let hourglass_class = classNames('stopwatch__hourglass', {
-    'rotate': time.running,
+    'rotate': state.running,
   });
 
   return (
     <div className='stopwatch__container'>
       <span className='h'>
-        {time.h}
+        {state.h}
       </span>
       <span className='m'>
-        {time.m}
+        {state.m}
       </span>
       <span className='s'>
-        {time.s}
+        {state.s}
       </span>
       <span className='ms'>
-        {time.ms}
+        {state.ms}
       </span>
 
       <button 
-      onClick={e => checkState(e)}
+      onClick={e => checkRunning(e)}
       className='stopwatch__button'>
         <img 
         className={hourglass_class}

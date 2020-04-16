@@ -13,21 +13,21 @@ import SideNav from './components/SideNav';
 import SideNavButton from './components/SideNavButton';
 
 // DUMMY DATA
-// const initData = [{ //pass this data for ONE todo
-//   title: 'Clean Room',
-//   complete: false,
-//   todoID: uuidv4(),
-// },{
-//   title: 'Do Laundry',
-//   complete: true,
-//   todoID: uuidv4(),
-// }];
+const initData = [{ //pass this data for ONE todo
+  title: 'Clean Room',
+  complete: false,
+  todoID: uuidv4(),
+},{
+  title: 'Do Laundry',
+  complete: true,
+  todoID: uuidv4(),
+}];
 
 
 function App() {
   // setState functions
   const [currentTodo, setCurrentTodo] = useState('');
-  const [todos, setTodos] = useState([])
+  const [todos, setTodos] = useState(initData);
 
   // event handlers
   const inputHandler = e => {
