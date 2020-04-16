@@ -5,21 +5,21 @@ import InputButton from './InputButton';
 
 // styles
 import '../styles/InputForm.css';
-import navigationIMG from '../assets/navigation-button.png';
+import timerIMG from '../assets/timer.png';
 
 
 export default function InputButtons(props) {
+  const TIME_SELECTION = [15, 20, 30, 60];
+  const buttons = TIME_SELECTION.map(timeSelection => {
+    return <InputButton
+    imgSrc={timerIMG}
+    timeSelection={timeSelection}
+    />;
+  });
 
   return (
-    <div
-    className='inputButtons__container'
-    >
-      <InputButton
-      imgSrc={navigationIMG}
-      />
-      <InputButton
-      imgSrc={navigationIMG}
-      />
+    <div className='inputButtons__container'>
+      {buttons}
     </ div>
   )
 }

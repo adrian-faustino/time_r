@@ -48,10 +48,22 @@
   border: none;
   box-shadow: 0 0 2px black;
   cursor: pointer;
+  border-radius: 40px 5px 20px 5px;
 }
 
 .input__button--img {
-  box-shadow: none;
+  height: 40px;
+  padding: 5px;
+  position: relative;
+  left: 13px;
+  bottom: 4px;
+}
+
+.input__button--name {
+  position: absolute;
+  bottom: 23px;
+  font-size: 15px;
+  line-height: 0;
 }
 
 .input__submit {

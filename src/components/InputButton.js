@@ -4,16 +4,17 @@ import classNames from 'classnames';
 // styles
 import '../styles/InputForm.css';
 
-export default function InputButton({imgSrc}) {
+export default function InputButton({imgSrc, timeSelection}) {
   const btnClass = classNames('input__button', {
-    'input__button--img': imgSrc,
   })
 
   return (
-    <button
-    className={btnClass}
-    >
-      {imgSrc ? <img alt={imgSrc} src={imgSrc} /> : 'Submit'}
+    <button className={btnClass}>
+
+      {imgSrc ? <img className={'input__button--img'} alt={imgSrc} src={imgSrc} /> : 'Submit'}
+
+      {timeSelection? <h3 className={'input__button--name'}>{timeSelection + 'm'}</h3> : 'uhh?'}
+
     </button>
   )
 }
