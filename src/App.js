@@ -16,17 +16,20 @@ import SideNavButton from './components/SideNavButton';
 const initData = [{ //pass this data for ONE todo
   title: 'Clean Room',
   complete: false,
+  initTime: 20,
   todoID: uuidv4(),
 },{
   title: 'Do Laundry',
   complete: true,
+  initTime: 15,
   todoID: uuidv4(),
 }];
 
 
 function App() {
-  // setState functions
+  // setState functions. SW initially set to 20 mins (GLOW)
   const [currentTodo, setCurrentTodo] = useState('');
+  const [stopwatchT, setStopwatchT] = useState(20);
   const [todos, setTodos] = useState(initData);
 
   // event handlers
@@ -44,9 +47,13 @@ function App() {
     setTodos([...todos, {
       title: currentTodo,
       complete: false,
+      initTime: stopwatchT,
       todoID: uuidv4(),
     }]);
+
+    // reset form
     setCurrentTodo('');
+    setStopwatchT(20);
   }
 
   const deleteHandler = (e, todoID) => {
@@ -64,6 +71,11 @@ function App() {
     thisTask.complete = !thisTask.complete;
 
     setTodos([...todos]);
+  };
+
+  const setInitTime = mins => {
+    console.log('Setting init time..', mins)
+    setStopwatchT(mins);
   };
 
   //=====  Helper Functions  ===== /
@@ -85,7 +97,6 @@ function App() {
 
     // deletes all todos
   function onDeleteAll() {
-    console.log('del');
     setTodos([]);
   }
 
@@ -100,8 +111,11 @@ function App() {
           inputHandler={inputHandler}
           currentTodo={currentTodo}
           />
-          <InputButtons
-          />
+
+          {currentTodo && currentTodo.trim() ? <InputButtons
+          setInitTime={setInitTime}
+          /> : ''}
+
         </section>
       </ MainDivision>
 
@@ -111,7 +125,7 @@ function App() {
         deleteHandler={deleteHandler}
         todos={todos}
         />
-        {currentTodo && currentTodo.trim() ? <Todo title={currentTodo} blurOut /> : ''}
+        {currentTodo && currentTodo.trim() ? <Todo title={currentTodo} initTime={stopwatchT} blurOut /> : ''}
       </MainDivision>
 
       <SideNav>

@@ -8,27 +8,21 @@ import hourglass from '../assets/hourglass.png';
 // helper
 import { getTotalMS, formatMS } from '../helper/StopwatchHelper';
 
-export default function Stopwatch() {
+export default function Stopwatch(props) {
+  const { initTime } = props;
+
   const initData = {
     h: 0,
     m: 20,
     s: 0,
     ms: 0,
-    totalMS: 3600000,
+    totalMS: 1200000,
     running: false,
     interval: '',
   };
 
   // state
   const [state, setState] = useState(initData);
-
-  // useEffect
-  // useEffect(() => {
-  //   console.log('useEffect triggered...');
-  //   setState({...state,
-  //     totalMS: getTotalMS(state),
-  //   });
-  // }, [totalMS]);
 
   const checkRunning = e => {
     if (!state.running) {
@@ -38,6 +32,16 @@ export default function Stopwatch() {
       stop();
     }
   };
+
+  // set the stopwatch onload
+  useEffect(() => {
+    if (initTime) {
+    console.log('generated!', initTime)
+    const totalMS = getTotalMS({h:0,m:initTime,s:0,ms:0});
+    setState({...state, totalMS});
+    console.log(state.totalMS, 'totalMS!');
+    }
+  }, [initTime]);
 
   const start = (start_T) => {
     let interval = setInterval(() => {

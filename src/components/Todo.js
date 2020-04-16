@@ -39,7 +39,7 @@ export default function Todo(props) {
           <img alt={deleteIMG} src={deleteIMG} />
         </button>
       </section>
-      { !props.complete ? <Stopwatch /> : ''}
+      { !props.complete ? <Stopwatch initTime={props.initTime}/> : ''}
     </li>
   )
 }
