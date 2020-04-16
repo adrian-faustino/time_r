@@ -16,6 +16,7 @@ export default function SideNavButton(props) {
     className={classNames_}>
       <span className='sidenavBtn__name'>{message}</span>
       <img
+      alt={'arrow'}
       className='sidenav-img'
       src={navigationIMG}
       />

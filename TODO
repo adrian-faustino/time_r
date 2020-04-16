@@ -9,10 +9,11 @@ General TODO:
 [] tally for productive hours
 
 
-[] fix stopwatch... -in progress
-    [] calc start time (when user presses start)
-    [] calc time elapsed (timeNow - start)
-    [] IF countdown -> e.g. user typed 20min (20 - time ealpsed) --> then format
+[x] fix stopwatch...
+    [x] calc start time (when user presses start)
+    [x] calc time elapsed (timeNow - start)
+    [x] IF countdown -> e.g. user typed 20min (20 - time ealpsed) --> then format
+[x] set time on todo
 [] confirm delete feature
 [] ability to edit each todo
 [] reset stopwatch button (beside hourglass)

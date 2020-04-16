@@ -33,13 +33,13 @@ export default function Stopwatch() {
   const checkRunning = e => {
     if (!state.running) {
       let start_T = new Date();
-      start2(start_T);
+      start(start_T);
     } else {
       stop();
     }
   };
 
-  const start2 = (start_T) => {
+  const start = (start_T) => {
     let interval = setInterval(() => {
       const end_T = new Date();
       const elapsed = end_T - start_T;
@@ -58,33 +58,6 @@ export default function Stopwatch() {
         totalMS: newTotalMS
       });
     }, 231);
-  };
-
-
-  const start = (st) => {
-    // first try without useEffect:
-    let interval = setInterval(() => {
-      const ct = new Date();
-      const elapsed =  ct - st;
-
-      let newMS = state.ms - (elapsed % 1000);
-      if (newMS < 0) {
-        state.ms = 1000;
-      }
-      let newS = state.s - Math.floor(elapsed / 1000);
-      if (newS === 0) {
-        state.s = 59;
-      }
-
-      let newM = state.m - Math.floor(elapsed / 60000)
-      if (newM === 0) {
-        state.m = 59;
-      }
-
-      let newH = state.h - Math.floor(elapsed / 3600000);
-
-      setState({...state, ms: newMS, s: newS, m: newM, h: newH, running: true, interval});
-    }, 123);
   };
 
   const stop = () => {
@@ -117,6 +90,7 @@ export default function Stopwatch() {
       onClick={e => checkRunning(e)}
       className='stopwatch__button'>
         <img 
+        alt={'hourglass'}
         className={hourglass_class}
         src={hourglass}></img>
       </button>
