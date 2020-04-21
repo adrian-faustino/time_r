@@ -28,9 +28,9 @@ Bugs:
 [x] stopwatch countdown - counts down into negative number
 [x] typing space lots of times creates sillhouete (remove this. Only generate when text is inputted)
 [x] remove ability to create empty todo titles
-[] when multiple stopwatches are on, time only accounted for one.. flickers between 2 times (fix by only allowing 1 stopwatch to be used at a time?)
-[] stopping and starting the stopwatch adds (3 mins? set amount of time) to the total minutes.. inaccurate total
-[] unable to type in input field while stopwatch is running
+[x] when multiple stopwatches are on, time only accounted for one.. flickers between 2 times (fix by only allowing 1 stopwatch to be used at a time?)
+[x] stopping and starting the stopwatch adds (3 mins? set amount of time) to the total minutes.. inaccurate total
+[x] unable to type in input field while stopwatch is running
 
 
 QOL:

@@ -53,6 +53,7 @@ export default function Stopwatch(props) {
   };
 
   const start = (start_T) => {
+    const INTERVAL = 123;
     let interval = setInterval(() => {
       const end_T = new Date();
       const elapsed = end_T - start_T;
@@ -79,7 +80,7 @@ export default function Stopwatch(props) {
         //   updateTotalElapsed(prev.totalElapsed);
         //   return {};
         // });
-
+        updateTotalElapsed(INTERVAL);
         setState({
           ...state,
           h: timeObj.h,
@@ -92,7 +93,7 @@ export default function Stopwatch(props) {
           totalElapsed: state.totalElapsed + elapsed
         });
       }
-    }, 123);
+    }, INTERVAL);
   };
 
   const stop = () => {

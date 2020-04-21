@@ -124,9 +124,10 @@ function App() {
 
   // CALCULATE TOTAL ELAPSED
   function updateTotalElapsed(ms) {
-    console.log('holy shit', ms);
-    setState({...state,
-      totalElapsed: state.totalElapsed + ms
+    setState(prev => {
+      return {...prev,
+        totalElapsed: prev.totalElapsed + ms
+      };
     });
   }
 
@@ -148,7 +149,7 @@ function App() {
           /> : ''}
 
         </section>
-        {/* <StatsBoard totalElapsed={state.totalElapsed}/> */}
+        <StatsBoard totalElapsed={state.totalElapsed}/>
       </ MainDivision>
 
       <MainDivision>
