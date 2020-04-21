@@ -11,9 +11,25 @@ import { getTotalMS, formatMS } from '../helper/StopwatchHelper';
 export default function Stopwatch(props) {
   const { initTime } = props;
 
+  // set stopwatch on load
+  useEffect(() => {
+    const totalMS = getTotalMS({h:0,m:initTime,s:0,ms:0});
+    
+    const timeObj = formatMS(totalMS);
+
+    setState({
+      ...state,
+      h: timeObj.h,
+      m: timeObj.m,
+      s: timeObj.s,
+      ms: timeObj.ms,
+      totalMS
+    });
+  }, [initTime]);
+
   const initData = {
     h: 0,
-    m: 20,
+    m: initTime,
     s: 0,
     ms: 0,
     totalMS: 1200000,
@@ -32,16 +48,6 @@ export default function Stopwatch(props) {
       stop();
     }
   };
-
-  // set the stopwatch onload
-  useEffect(() => {
-    if (initTime) {
-    console.log('generated!', initTime)
-    const totalMS = getTotalMS({h:0,m:initTime,s:0,ms:0});
-    setState({...state, totalMS});
-    console.log(state.totalMS, 'totalMS!');
-    }
-  }, [initTime]);
 
   const start = (start_T) => {
     let interval = setInterval(() => {

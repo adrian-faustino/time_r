@@ -6,7 +6,7 @@ import Todo from './Todo';
 export default function TodoList({todos, deleteHandler, completeHandler, initTime}) {
   const list = todos.map(todo => (
     <Todo
-    initTime={initTime}
+    initTime={todo.initTime}
     completeHandler={completeHandler}
     deleteHandler={deleteHandler}
     key={todo.todoID}
