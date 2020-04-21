@@ -4,8 +4,9 @@ import classNames from 'classnames';
 // styles
 import '../styles/InputForm.css';
 
-export default function InputButton({imgSrc, timeSelection, setInitTime}) {
+export default function InputButton({imgSrc, timeSelection, setInitTime, currentTime}) {
   const btnClass = classNames('input__button', {
+    'selected-glow': (currentTime === timeSelection)
   })
 
   return (

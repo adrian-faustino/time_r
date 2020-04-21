@@ -4,10 +4,11 @@ General TODO:
 [x] button to clear all completed tasks
     [x] check db in App
 [x] style new nav buttons
+[x] animation to indicate currently selected stopwatch input button
 [] fix span containing numbers. too wide
 [] tally for completed tasks?
 [] tally for productive hours
-
+[x] fix issue not being able to set init stopwatch time - MVP
 
 [x] fix stopwatch...
     [x] calc start time (when user presses start)
@@ -17,7 +18,7 @@ General TODO:
 [] confirm delete feature
 [] ability to edit each todo
 [] reset stopwatch button (beside hourglass)
-[] change window title and img to hourglass before deploying
+[x] change window title and img to hourglass before deploying
 [] add animation for button click feedback
 [] ability to edit time
 

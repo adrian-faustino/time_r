@@ -30,7 +30,7 @@ function App() {
   // setState functions. SW initially set to 20 mins (GLOW)
   const [state, setState] = useState({
     currentTodo: '',
-    stopwatchT: 50,
+    stopwatchT: 20,
     todos: []
   });
 
@@ -54,13 +54,11 @@ function App() {
           complete: false,
           initTime: state.stopwatchT,
           todoID: uuidv4()
-        }]
+        }],
+        currentTodo: '',
+        stopwatchT: 20
       };
     });
-
-    // reset form
-    // setCurrentTodo('');
-    // setStopwatchT(20);
   }
 
   const deleteHandler = (e, todoID) => {
@@ -134,6 +132,7 @@ function App() {
           />
 
           {state.currentTodo && state.currentTodo.trim() ? <InputButtons
+          currentTime={state.stopwatchT}
           setInitTime={setInitTime}
           /> : ''}
 

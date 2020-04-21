@@ -12,6 +12,7 @@ export default function InputButtons(props) {
   const TIME_SELECTION = [15, 20, 30, 60];
   const buttons = TIME_SELECTION.map(timeSelection => {
     return <InputButton
+    currentTime={props.currentTime}
     key={timeSelection}
     setInitTime={e => props.setInitTime(timeSelection)}
     imgSrc={timerIMG}

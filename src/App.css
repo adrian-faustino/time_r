@@ -10,3 +10,19 @@
   width: 100%;
   text-align: center;
 }
+
+/* selected button glow */
+.selected-glow {
+  animation: glow 0.5s linear;
+  animation-iteration-count: infinite;
+  animation-direction: alternate-reverse;
+}
+
+@keyframes glow {
+  0% {
+      background: green;
+  }
+  100% {
+      background: rgba(7, 236, 102, 0.623);
+  }
+}
