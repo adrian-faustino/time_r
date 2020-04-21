@@ -10,7 +10,7 @@ import hourglass from '../assets/hourglass.png';
 import { getTotalMS, formatMS } from '../helper/StopwatchHelper';
 
 export default function Stopwatch(props) {
-  const { initTime } = props;
+  const { initTime, updateTotalElapsed } = props;
 
   // set stopwatch on load
   useEffect(() => {
@@ -34,6 +34,7 @@ export default function Stopwatch(props) {
     s: 0,
     ms: 0,
     totalMS: 1200000,
+    totalElapsed: 0,
     running: false,
     interval: '',
     alarm: false
@@ -57,7 +58,7 @@ export default function Stopwatch(props) {
       const elapsed = end_T - start_T;
 
       const newTotalMS = state.totalMS - elapsed;
-
+      
       // when stopwatch hits 0
       if (newTotalMS <= 0) {
         clearInterval(interval);
@@ -73,6 +74,12 @@ export default function Stopwatch(props) {
       } else {
         const timeObj = formatMS(newTotalMS);
 
+        // // this needs to be fixed
+        // setState(prev => {
+        //   updateTotalElapsed(prev.totalElapsed);
+        //   return {};
+        // });
+
         setState({
           ...state,
           h: timeObj.h,
@@ -81,7 +88,8 @@ export default function Stopwatch(props) {
           ms: timeObj.ms,
           running: true,
           interval,
-          totalMS: newTotalMS
+          totalMS: newTotalMS,
+          totalElapsed: state.totalElapsed + elapsed
         });
       }
     }, 123);
@@ -91,13 +99,6 @@ export default function Stopwatch(props) {
     clearInterval(state.interval);
     setState({...state, running: false});
   };
-
-  // const alertUser = () => {
-  //   const alarm = new Audio({
-  //     src: ['../assets/sounds/temple-bell.mp3']
-  //   });
-  //   alarm.play(); 
-  // }
 
   // classnames
   let hourglass_class = classNames('stopwatch__hourglass', {
@@ -128,7 +129,7 @@ export default function Stopwatch(props) {
         src={hourglass}></img>
       </button>
 
-      {state.alarm && <StopwatchAlarm onClick={''}/>}
+      {state.alarm && <StopwatchAlarm />}
     </div>
   )
 }

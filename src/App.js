@@ -12,6 +12,7 @@ import TodoList from './components/TodoList';
 import Todo from './components/Todo';
 import SideNav from './components/SideNav';
 import SideNavButton from './components/SideNavButton';
+import StatsBoard from './components/StatsBoard';
 
 // DUMMY DATA
 // const initData = [{ //pass this data for ONE todo
@@ -32,7 +33,8 @@ function App() {
   const [state, setState] = useState({
     currentTodo: '',
     stopwatchT: 20,
-    todos: []
+    todos: [],
+    totalElapsed: 0
   });
 
   // event handlers
@@ -120,6 +122,14 @@ function App() {
     setState(prev => ({...prev, todos: []}));
   }
 
+  // CALCULATE TOTAL ELAPSED
+  function updateTotalElapsed(ms) {
+    console.log('holy shit', ms);
+    setState({...state,
+      totalElapsed: state.totalElapsed + ms
+    });
+  }
+
   //=====  Main Render  =====//
   return (
     <div className="App">
@@ -138,10 +148,12 @@ function App() {
           /> : ''}
 
         </section>
+        {/* <StatsBoard totalElapsed={state.totalElapsed}/> */}
       </ MainDivision>
 
       <MainDivision>
         <TodoList
+        updateTotalElapsed={updateTotalElapsed}
         completeHandler={completeHandler}
         deleteHandler={deleteHandler}
         todos={state.todos}
@@ -162,6 +174,7 @@ function App() {
         style={'danger'}
         message={'Clear All'}
         onClick_={() => onDeleteAll()}/> || <SideNavButton message={'Clear All'} style={'fade'}/>}
+
       </SideNav>
     </div>
   );

@@ -1,0 +1,13 @@
+.stats-board__container {
+  height: 100px;
+  width: 100%;
+  background:red;
+  position: relative;
+  top: 50vh;
+  left: 12vw;
+}
+
+.stats-bard__banner {
+  font-size: 25px;
+  font-weight: bold;
+}

@@ -5,31 +5,38 @@ General TODO:
     [x] check db in App
 [x] style new nav buttons
 [x] animation to indicate currently selected stopwatch input button
-[] fix span containing numbers. too wide
-[] tally for completed tasks?
-[] tally for productive hours
+[x] fix span containing numbers. too wide
+[x] alarm sound when countdown finishes
 [x] fix issue not being able to set init stopwatch time - MVP
-
 [x] fix stopwatch...
     [x] calc start time (when user presses start)
     [x] calc time elapsed (timeNow - start)
     [x] IF countdown -> e.g. user typed 20min (20 - time ealpsed) --> then format
 [x] set time on todo
+[x] change window title and img to hourglass before deploying
+[x] add animation for button click feedback
+
+[] total for completed tasks?
+[x] total productive time
 [] confirm delete feature
 [] ability to edit each todo
 [] reset stopwatch button (beside hourglass)
-[x] change window title and img to hourglass before deploying
-[] add animation for button click feedback
-[] ability to edit time
+
 
 
 Bugs:
-[] stopwatch countdown - counts down into negative number
+[x] stopwatch countdown - counts down into negative number
 [x] typing space lots of times creates sillhouete (remove this. Only generate when text is inputted)
 [x] remove ability to create empty todo titles
+[] when multiple stopwatches are on, time only accounted for one.. flickers between 2 times (fix by only allowing 1 stopwatch to be used at a time?)
+[] stopping and starting the stopwatch adds (3 mins? set amount of time) to the total minutes.. inaccurate total
+[] unable to type in input field while stopwatch is running
+
 
 QOL:
 [] When user types a new input, scroll the right side to the very bottom to show input
+
+
 
 Feature ideas:
 [] Reusability - QOL
@@ -39,9 +46,9 @@ Feature ideas:
 -untoggle button to unclear (for reuse next day etc)
 
 [] Stats tracking - catch
--sign in to save stats (track stats on weekly, monthly etc ERD)
+-sign in to save stats (track stats on weekly, monthly etc DB)
 
-[] Dynamic render of features - accessibility
+[x] Dynamic render of features - accessibility
 -as users use features of the app, more things render (prevent TMI)
 -e.g when they first start its just one box
 -then once first TODO is input, render one todo

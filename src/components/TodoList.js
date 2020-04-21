@@ -3,9 +3,10 @@ import React from 'react';
 // components
 import Todo from './Todo';
 
-export default function TodoList({todos, deleteHandler, completeHandler, initTime}) {
+export default function TodoList({todos, deleteHandler, completeHandler, initTime, updateTotalElapsed }) {
   const list = todos.map(todo => (
     <Todo
+    updateTotalElapsed={updateTotalElapsed}
     initTime={todo.initTime}
     completeHandler={completeHandler}
     deleteHandler={deleteHandler}
