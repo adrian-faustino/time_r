@@ -13,3 +13,17 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+@media only screen and (max-width: 1200px) {
+  .todos-container {
+    position: relative;
+    top: 430px;
+    /* left: -50%;
+    transform: translateX(25%); */
+    justify-self: center;
+  }
+
+  .display-container {
+    position: relative;
+  }
+}

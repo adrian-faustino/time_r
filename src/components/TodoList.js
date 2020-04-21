@@ -18,7 +18,7 @@ export default function TodoList({todos, deleteHandler, completeHandler, initTim
   ));
 
   return (
-    <ul>
+    <ul className="todos-container">
       {list} 
     </ul>
   )
