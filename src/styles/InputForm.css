@@ -32,6 +32,7 @@
   display: flex;
   justify-content: space-between;
   padding: 5px;
+  animation: fade-in 1s ease-in;
 }
 
 .input__display {
@@ -41,7 +42,6 @@
 .input-hr {
   border-color: rgba(75, 74, 74, 0.445);
 }
-
 
 .input__button {
   border-radius: 5px;
@@ -78,4 +78,18 @@
   cursor: pointer;
 }
 
-/* spawn animation */
+/* selected button glow */
+.selected-glow {
+  animation: glow 0.5s linear;
+  animation-iteration-count: infinite;
+  animation-direction: alternate-reverse;
+}
+
+@keyframes glow {
+  0% {
+      background: green;
+  }
+  100% {
+      background: rgba(7, 236, 102, 0.623);
+  }
+}

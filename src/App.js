@@ -149,16 +149,18 @@ function App() {
       </MainDivision>
 
       <SideNav>
-        <SideNavButton
+        {state.todos.filter(todo => todo.complete).length > 0 && <SideNavButton
         message={'Reset'}
-        onClick_={() => onUntoggle()}/>
-        <SideNavButton
+        onClick_={() => onUntoggle()}/> || <SideNavButton message={'Reset'} style={'fade'}/>}
+
+        {state.todos.filter(todo => todo.complete).length > 0 && <SideNavButton
         message={'Clear Done'}
-        onClick_={() => onDeleteComplete()}/>
-        <SideNavButton 
-        danger={'danger'}
+        onClick_={() => onDeleteComplete()}/> || <SideNavButton message={'Clear Done'} style={'fade'}/>}
+
+        {state.todos.length > 0 && <SideNavButton 
+        style={'danger'}
         message={'Clear All'}
-        onClick_={() => onDeleteAll()}/>
+        onClick_={() => onDeleteAll()}/> || <SideNavButton message={'Clear All'} style={'fade'}/>}
       </SideNav>
     </div>
   );

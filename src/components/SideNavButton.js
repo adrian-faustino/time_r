@@ -5,9 +5,10 @@ import classNames from 'classnames';
 import navigationIMG from '../assets/navigation-button.png';
 
 export default function SideNavButton(props) {
-  const { onClick_, message } = props;
+  const { onClick_, message, style } = props;
   const classNames_ = classNames('sidenav__button', {
-    '--danger': props.danger
+    '--danger': (style === 'danger'),
+    '--fade': (style === 'fade')
   });
 
   return (

@@ -11,18 +11,36 @@
   text-align: center;
 }
 
-/* selected button glow */
-.selected-glow {
-  animation: glow 0.5s linear;
-  animation-iteration-count: infinite;
-  animation-direction: alternate-reverse;
-}
-
-@keyframes glow {
+/* general animation */
+@keyframes fade-in {
   0% {
-      background: green;
+    opacity: 0;
   }
   100% {
-      background: rgba(7, 236, 102, 0.623);
+    opacity: 1;
+  }
+}
+
+@keyframes fade-to-blur {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0.6;
+  }
+}
+
+@keyframes flash {
+  0% {
+    background: white;
+  }
+}
+
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(180deg);
   }
 }

@@ -14,11 +14,13 @@
   display: grid;
   grid-template-columns: 4fr 1fr;
   align-items: center;
+  animation: flash 0.9s ease-out;
 }
 
 .todo__container.blur {
-  opacity: 0.5;
+  opacity: 0.6;
   pointer-events: none;
+  animation: fade-to-blur 0.5s ease-in;
 }
 
 .todo__title {
