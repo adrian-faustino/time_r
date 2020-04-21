@@ -17,10 +17,11 @@ General TODO:
 [x] add animation for button click feedback
 [] total for completed tasks?
 [x] total productive time
+[x] format zeroes in stopwatch span
 [] confirm delete feature
 [] ability to edit each todo
 [] reset stopwatch button (beside hourglass)
-
+[] implement save session to prevent data clear on refresh
 
 
 Bugs:
@@ -30,12 +31,13 @@ Bugs:
 [x] when multiple stopwatches are on, time only accounted for one.. flickers between 2 times (fix by only allowing 1 stopwatch to be used at a time?)
 [x] stopping and starting the stopwatch adds (3 mins? set amount of time) to the total minutes.. inaccurate total
 [x] unable to type in input field while stopwatch is running
-[] memory leak when clearing all while stopwatch is running
+[x] memory leak when clearing all while stopwatch is running
 [] when browser window is shrunk, elements start to overlap
-[] stopwatch keeps counting even when todos are marked complete / cleared
+[x] stopwatch keeps counting even when todos are marked complete / cleared
+[] 1 min of time -> 55 seconds total productive time..
 
 QOL:
-[] When user types a new input, scroll the right side to the very bottom to show input
+[x] When user types a new input, scroll the right side to the very bottom to show input
 
 
 

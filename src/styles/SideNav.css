@@ -10,7 +10,7 @@
   height: 40px;
   margin: 10px 0;
   color: white;
-  background: black;
+  background: var(--bg3);
   padding: 5px 16px 5px 40px;
   border-radius: 0 32px 32px 0;
   
@@ -22,8 +22,7 @@
 }
 
 .sidenav__button.--fade{
-  left: -100px;
-  pointer-events: none;
+  left: -110px;
 }
 
 .sidenavBtn__name {
@@ -35,7 +34,7 @@
 .sidenav__button:hover {
   background-color: blue;
   position: relative;
-  left: 0px;
+  left: -15px;
 }
 
 .sidenav__button.--danger:hover {

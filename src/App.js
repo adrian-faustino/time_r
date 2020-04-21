@@ -46,7 +46,7 @@ function App() {
   const submitHandler = e => {
     e.preventDefault();
 
-    if (state.currentTodo.length === 0) {
+    if (state.currentTodo.trim().length === 0) {
       return;
     }
     
@@ -121,7 +121,7 @@ function App() {
   function onDeleteAll() {
     // clear interval
     state.todos.forEach(todo => {
-      
+
     });
 
     setState(prev => ({...prev, todos: []}));

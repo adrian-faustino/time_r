@@ -113,19 +113,30 @@ export default function Stopwatch(props) {
     'rotate': state.running,
   });
 
+  // format 0s for single digits
+  const formatZero = (num, places) => {
+    let char = num.toString();
+
+    while (char.length < places) {
+      char = '0' + char;
+    }
+
+    return char;
+  }
+
   return (
     <div className='stopwatch__container'>
       <span className='h'>
-        {state.h}
+        {formatZero(state.h, 2)}
       </span>
       <span className='m'>
-        {state.m}
+        {formatZero(state.m, 2)}
       </span>
       <span className='s'>
-        {state.s}
+        {formatZero(state.s, 2)}
       </span>
       <span className='ms'>
-        {state.ms}
+        {formatZero(state.ms, 3)}
       </span>
 
       <button 

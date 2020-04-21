@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import classNames from 'classnames';
 
 // styles
@@ -15,6 +15,9 @@ export default function Todo(props) {
     'todo__button--complete': props.complete
   });
   
+  useEffect(() => {
+    window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
+  }, [props.title])
 
   return (
     <li

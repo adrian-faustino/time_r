@@ -2,15 +2,14 @@
   list-style: none;
   justify-self: center;
   height: min-content;
-  width: 80%;
+  width: 500px;
   border: 1px solid black;
   margin: 20px;
   padding: 5px 10px;
   border: none;
   border-radius: 7px;
   box-shadow: 0 0 4px black;
-  background: rgb(209, 116, 40);
-
+  background: var(--bg6);
   display: grid;
   grid-template-columns: 4fr 1fr;
   align-items: center;
@@ -20,6 +19,7 @@
 .todo__container.blur {
   opacity: 0.6;
   pointer-events: none;
+  background: var(--bg5);
   animation: fade-to-blur 0.5s ease-in;
 }
 
@@ -29,6 +29,9 @@
   word-break: break-all;
   cursor: default;
   padding: 8px;
+  background: #ffffffdc;
+  border-radius: 5px;
+  box-shadow: inset 0 0 4px black;
 }
 
 .todo-hr {

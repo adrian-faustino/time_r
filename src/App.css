@@ -1,12 +1,30 @@
+/* color palette  */
+:root {
+  --bg1: #61892F;
+  --bg2: #86C232;
+  --bg3: #222629;
+  --bg4: #474B4F;
+  --bg5: #6B6E70;
+  --bg6: #b31414a9;
+  --bg7: #ffffff91;
+}
+
 .App {
   min-height: 100vh;
   width: 100vw;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  background-color: rgba(250, 128, 114, 0.705);
+  /* background-color: var(--bg1); */
+  background: linear-gradient(var(--bg4),var(--bg1),var(--bg1),var(--bg5));
 }
 
 .MainDivision {
   width: 100%;
   text-align: center;
+}
+
+@media only screen and (max-width: 1200px) {
+  .MainDivision {
+    display: none;
+  }
 }

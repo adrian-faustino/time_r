@@ -6,7 +6,7 @@
   top: 50px;
   left: 380px;
   transform: translateX(-50%);
-  background: rgb(209, 116, 40);
+  background: rgba(179, 20, 20, 0.664);
 }
 
 .input__container {
@@ -24,6 +24,7 @@
   border-radius: 5px 0 0 5px;
   box-shadow: inset 0 0 2px black;
   margin: 20px 0;
+  background: rgba(255, 254, 254, 0.842);
 }
 
 .inputButtons__container {
