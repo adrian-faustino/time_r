@@ -31,6 +31,8 @@ Bugs:
 [x] stopping and starting the stopwatch adds (3 mins? set amount of time) to the total minutes.. inaccurate total
 [x] unable to type in input field while stopwatch is running
 [] memory leak when clearing all while stopwatch is running
+[] when browser window is shrunk, elements start to overlap
+[] stopwatch keeps counting even when todos are marked complete / cleared
 
 QOL:
 [] When user types a new input, scroll the right side to the very bottom to show input

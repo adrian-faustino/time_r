@@ -119,6 +119,11 @@ function App() {
 
     // deletes all todos
   function onDeleteAll() {
+    // clear interval
+    state.todos.forEach(todo => {
+      
+    });
+
     setState(prev => ({...prev, todos: []}));
   }
 

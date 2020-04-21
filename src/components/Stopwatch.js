@@ -43,6 +43,13 @@ export default function Stopwatch(props) {
   // state
   const [state, setState] = useState(initData);
 
+  // clear intervals on unmount
+  useEffect(() => {
+    return () => {
+      clearInterval(state.interval);
+    }
+  }, [state.interval]);
+
   const checkRunning = e => {
     if (!state.running) {
       let start_T = new Date();
