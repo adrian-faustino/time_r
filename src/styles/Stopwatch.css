@@ -16,6 +16,7 @@
 .stopwatch__container > span {
   background-color: rgba(0, 0, 0, 0.1);
   display: inline-block;
+  text-align: center;
   width: 30px;
   padding: 4px 6px;
   border-radius: 3px;

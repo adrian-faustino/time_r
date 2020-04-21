@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './App.css';
+import './styles/Animations.css'
 import { v4 as uuidv4 } from 'uuid';
 
 // components
